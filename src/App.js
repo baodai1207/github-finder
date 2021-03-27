@@ -1,13 +1,13 @@
-import React, { Fragment, Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./App.css";
-import Navbar from "./components/layout/Navbar";
-import Users from "./components/users/Users";
-import User from "./components/users/User";
-import Search from "./components/users/Search";
-import Alert from "./components/layout/Alert";
-import About from "./components/pages/About";
-import axios from "axios";
+import React, { Fragment, Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import './App.css';
+import Navbar from './components/layout/Navbar';
+import Users from './components/users/Users';
+import User from './components/users/User';
+import Search from './components/users/Search';
+import Alert from './components/layout/Alert';
+import About from './components/pages/About';
+import axios from 'axios';
 
 class App extends Component {
   state = {
@@ -26,7 +26,7 @@ class App extends Component {
   // }
 
   // Search Github users
-  searchUsers = async (text) => {
+  searchUsers = async text => {
     this.setState({ loading: true });
 
     const res = await axios.get(
@@ -37,7 +37,7 @@ class App extends Component {
   };
 
   // Get single Github user
-  getUser = async (username) => {
+  getUser = async username => {
     this.setState({ loading: true });
 
     const res = await axios.get(
@@ -70,7 +70,7 @@ class App extends Component {
               <Route
                 exact
                 path='/'
-                render={(props) => (
+                render={props => (
                   <Fragment>
                     <Search
                       searchUsers={this.searchUsers}
@@ -88,7 +88,7 @@ class App extends Component {
               <Route
                 exact
                 path='/user/:login'
-                render={(props) => (
+                render={props => (
                   <User
                     {...props}
                     getUser={this.getUser}
